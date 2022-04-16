@@ -35,4 +35,5 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
-Route::resource('items', ItemController::class);
+Route::resource('items', ItemController::class)
+    ->except(['destroy']);
