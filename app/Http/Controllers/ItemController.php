@@ -52,7 +52,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('items.show', ['item' => $item]);
     }
 
     /**
@@ -63,7 +63,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        return view('items.edit', ['item' => $item]);
     }
 
     /**
