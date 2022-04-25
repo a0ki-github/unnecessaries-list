@@ -41,7 +41,7 @@ class ItemController extends Controller
             'name' => $request->name,
         ]);
 
-        return view('home');
+        return redirect()->route('items.index');
     }
 
     /**
@@ -75,6 +75,10 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
-        //
+        $item->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('items.index');
     }
 }

@@ -2,7 +2,7 @@
 <div>
     <p></p>
     <form action="{{ route('items.store') }}" method="post">
-        {{ csrf_field() }}
+        @csrf
         <label for="name">Name:</label>
         <input type="text" name="name">
         <button type="submit" name="action" value="send">Submit</button>
