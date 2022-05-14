@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\UuidModel;
 
-class Item extends Model
+class Item extends UuidModel
 {
     use HasFactory;
 
     protected $fillable = [
+        'uuid',
         'name',
     ];
 }
