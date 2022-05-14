@@ -6,3 +6,5 @@
         </a>
     </li>
 @endforeach
+<br>
+<a href="{{ route('items.create') }}">Create New Item</a>
