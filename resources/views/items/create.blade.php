@@ -7,4 +7,5 @@
         <input type="text" name="name">
         <button type="submit" name="action" value="send">Submit</button>
     </form>
+    <a href="{{ route('items.index') }}">back</a>
 </div>
