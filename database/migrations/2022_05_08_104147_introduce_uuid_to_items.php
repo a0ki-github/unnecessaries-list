@@ -15,7 +15,7 @@ class IntroduceUuidToItems extends Migration
     {
         Schema::dropIfExists('items');
         Schema::create('items', function (Blueprint $table) {
-            $table->uuid('uuid');
+            $table->uuid('uuid')->primary();
             $table->string('name');
             $table->timestamps();
         });
