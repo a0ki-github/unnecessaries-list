@@ -40,4 +40,5 @@ Route::resource('items', ItemController::class)
     ->except(['destroy']);
 Route::resource('items.comments', CommentController::class)
     ->only(['store', 'update', 'destroy'])
-    ->shallow();
+    ->shallow()
+    ->middleware('auth');

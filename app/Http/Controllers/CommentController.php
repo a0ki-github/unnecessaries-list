@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
+use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -36,7 +38,15 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        $item = $request->item;
+
+        Comment::create([
+            'user_id' => Auth::id(),
+            'item_uuid' => $item,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('items.show', ['item' => $item]);
     }
 
     /**
