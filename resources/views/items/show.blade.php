@@ -18,5 +18,10 @@
     <p>{{ $comment->content }}</p>
     @if ($comment->user->id === Auth::id())
         <a href="{{ route('comments.edit', ['comment' => $comment->uuid]) }}">edit</a>
+        <form action="{{ route('comments.destroy', ['comment' => $comment->uuid]) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick='return confirm("Are you sure?");'>delete</button>
+        </form>
     @endif
 @endforeach

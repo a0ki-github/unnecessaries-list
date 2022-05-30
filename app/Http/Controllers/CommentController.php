@@ -95,6 +95,8 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+
+        return redirect()->route('items.show', ['item' => $comment->item->uuid]);
     }
 }
