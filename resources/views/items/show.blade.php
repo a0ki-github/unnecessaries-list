@@ -13,6 +13,7 @@
 @foreach ($item->comments->sortByDesc('updated_at') as $comment)
     <p>
         <span>{{ $comment->user->name }}</span>
-        <span>{{ $comment->updated_at }}</p></span>
+        <span>{{ $comment->updated_at }}</span>
+    </p>
     <p>{{ $comment->content }}</p>
 @endforeach
