@@ -16,4 +16,7 @@
         <span>{{ $comment->updated_at }}</span>
     </p>
     <p>{{ $comment->content }}</p>
+    @if ($comment->user->id === Auth::id())
+        <a href="{{ route('comments.edit', ['comment' => $comment->uuid]) }}">edit</a>
+    @endif
 @endforeach

@@ -39,6 +39,6 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])
 Route::resource('items', ItemController::class)
     ->except(['destroy']);
 Route::resource('items.comments', CommentController::class)
-    ->only(['store', 'update', 'destroy'])
+    ->only(['store', 'edit', 'update', 'destroy'])
     ->shallow()
     ->middleware('auth');
