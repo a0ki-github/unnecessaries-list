@@ -80,7 +80,11 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+        $comment->update([
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('items.show', ['item' => $comment->item->uuid]);
     }
 
     /**
