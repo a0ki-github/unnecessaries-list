@@ -1,6 +1,5 @@
 <h1>Edit Item</h1>
 <div>
-    <p></p>
     <form action="{{ route('items.update', ['item' => $item->uuid]) }}" method="post">
         @method('PUT')
         @csrf

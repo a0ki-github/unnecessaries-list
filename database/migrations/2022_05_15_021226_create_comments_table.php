@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class IntroduceUuidToItems extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class IntroduceUuidToItems extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('items');
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->uuid('uuid')->primary();
-            $table->string('name');
+            $table->foreignId('user_id')->constrained();
+            $table->string('item_uuid');
+            $table->foreign('item_uuid')->references('uuid')->on('items')->onDelete('cascade');
+            $table->string('content');
             $table->timestamps();
         });
     }
@@ -28,11 +30,6 @@ class IntroduceUuidToItems extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
-        Schema::create('items', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
+        Schema::dropIfExists('comments');
     }
 }

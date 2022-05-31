@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,7 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])
 
 Route::resource('items', ItemController::class)
     ->except(['destroy']);
+Route::resource('items.comments', CommentController::class)
+    ->only(['store', 'edit', 'update', 'destroy'])
+    ->shallow()
+    ->middleware('auth');
